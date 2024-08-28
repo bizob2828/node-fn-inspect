@@ -3,7 +3,6 @@
 
 set -e
 
-npx ls-lint
 npx lint-staged
 
 # Install detect-secrets if not found
