@@ -20,9 +20,9 @@ void FuncInfo(const v8::FunctionCallbackInfo<v8::Value> &info) {
 }
 
 NODE_MODULE_INIT(/*exports, module, context*/) {
-    v8::Isolate* isolate = context->GetIsolate();
+    v8::Isolate* isolate = v8::Isolate::GetCurrent();
 
-    exports->Set(context,
+    Nan::Set(exports,
         Nan::New("funcInfo").ToLocalChecked(),
         v8::FunctionTemplate::New(isolate, FuncInfo)->GetFunction(context).ToLocalChecked()
     );
